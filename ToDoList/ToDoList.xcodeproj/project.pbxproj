@@ -16,6 +16,7 @@
 		F62241BC2C616EA7001A4441 /* ToDoListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241BB2C616EA7001A4441 /* ToDoListUITestsLaunchTests.swift */; };
 		F62241CD2C6174DF001A4441 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241CC2C6174DF001A4441 /* HomeView.swift */; };
 		F62241CF2C617867001A4441 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241CE2C617867001A4441 /* ListView.swift */; };
+		F62241D12C617B20001A4441 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D02C617B20001A4441 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		F62241BB2C616EA7001A4441 /* ToDoListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F62241CC2C6174DF001A4441 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F62241CE2C617867001A4441 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		F62241D02C617B20001A4441 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		F62241C82C617116001A4441 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F62241D02C617B20001A4441 /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F62241D12C617B20001A4441 /* Item.swift in Sources */,
 				F62241CF2C617867001A4441 /* ListView.swift in Sources */,
 				F62241CD2C6174DF001A4441 /* HomeView.swift in Sources */,
 				F62241A12C616EA6001A4441 /* ContentView.swift in Sources */,
