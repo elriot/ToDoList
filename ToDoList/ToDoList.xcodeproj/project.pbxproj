@@ -14,6 +14,7 @@
 		F62241B02C616EA7001A4441 /* ToDoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241AF2C616EA7001A4441 /* ToDoListTests.swift */; };
 		F62241BA2C616EA7001A4441 /* ToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241B92C616EA7001A4441 /* ToDoListUITests.swift */; };
 		F62241BC2C616EA7001A4441 /* ToDoListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241BB2C616EA7001A4441 /* ToDoListUITestsLaunchTests.swift */; };
+		F62241CD2C6174DF001A4441 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241CC2C6174DF001A4441 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		F62241B52C616EA7001A4441 /* ToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F62241B92C616EA7001A4441 /* ToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
 		F62241BB2C616EA7001A4441 /* ToDoListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F62241CC2C6174DF001A4441 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		F62241C92C61711E001A4441 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F62241CC2C6174DF001A4441 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F62241CD2C6174DF001A4441 /* HomeView.swift in Sources */,
 				F62241A12C616EA6001A4441 /* ContentView.swift in Sources */,
 				F622419F2C616EA6001A4441 /* ToDoListApp.swift in Sources */,
 			);
