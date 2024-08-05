@@ -18,6 +18,7 @@
 		F62241CF2C617867001A4441 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241CE2C617867001A4441 /* ListView.swift */; };
 		F62241D12C617B20001A4441 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D02C617B20001A4441 /* Item.swift */; };
 		F62241D32C619170001A4441 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D22C619170001A4441 /* ListItemView.swift */; };
+		F62241D52C61992A001A4441 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D42C61992A001A4441 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		F62241CE2C617867001A4441 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		F62241D02C617B20001A4441 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F62241D22C619170001A4441 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		F62241D42C61992A001A4441 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			children = (
 				F622419E2C616EA6001A4441 /* ToDoListApp.swift */,
 				F62241A02C616EA6001A4441 /* ContentView.swift */,
+				F62241D42C61992A001A4441 /* Extensions.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			files = (
 				F62241D12C617B20001A4441 /* Item.swift in Sources */,
 				F62241CF2C617867001A4441 /* ListView.swift in Sources */,
+				F62241D52C61992A001A4441 /* Extensions.swift in Sources */,
 				F62241CD2C6174DF001A4441 /* HomeView.swift in Sources */,
 				F62241D32C619170001A4441 /* ListItemView.swift in Sources */,
 				F62241A12C616EA6001A4441 /* ContentView.swift in Sources */,
