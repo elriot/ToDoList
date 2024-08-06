@@ -21,6 +21,7 @@
 		F62241D52C61992A001A4441 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D42C61992A001A4441 /* Extensions.swift */; };
 		F62241D72C61D49B001A4441 /* NavPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D62C61D49B001A4441 /* NavPath.swift */; };
 		F62241D92C61E69D001A4441 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D82C61E69D001A4441 /* NewItemView.swift */; };
+		F62241DB2C61E6F6001A4441 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241DA2C61E6F6001A4441 /* ItemDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		F62241D42C61992A001A4441 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F62241D62C61D49B001A4441 /* NavPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavPath.swift; sourceTree = "<group>"; };
 		F62241D82C61E69D001A4441 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
+		F62241DA2C61E6F6001A4441 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				F62241CE2C617867001A4441 /* ListView.swift */,
 				F62241D22C619170001A4441 /* ListItemView.swift */,
 				F62241D82C61E69D001A4441 /* NewItemView.swift */,
+				F62241DA2C61E6F6001A4441 /* ItemDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				F62241CD2C6174DF001A4441 /* HomeView.swift in Sources */,
 				F62241D32C619170001A4441 /* ListItemView.swift in Sources */,
 				F62241A12C616EA6001A4441 /* ContentView.swift in Sources */,
+				F62241DB2C61E6F6001A4441 /* ItemDetailsView.swift in Sources */,
 				F622419F2C616EA6001A4441 /* ToDoListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
