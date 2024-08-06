@@ -9,18 +9,29 @@ import SwiftUI
 
 struct ItemDetailsView: View {
     let item: Item
-    
+    @State private var updatedItem = Item(id: "abcd", authorId: "John", title: "leetcode", description: "Solve easy problem tomorrow", status: .todo, priority: .high)
     
     var body: some View {
-        VStack {
-            Text(item.title)
+        VStack(spacing: 10) {
             
-            Text(item.description)
+            TitledTextField(title: "Title", placeholder: "What do you need to do?", text: $updatedItem.title)
             
-            Text(item.status.rawValue)
+            Divider()
             
-            Text(item.priority.rawValue)
+            TitledTextField(title: "Description", placeholder: "Add a brief description", text: $updatedItem.description)
+            
+            Divider()
+            
+            StatusMenu(status: $updatedItem.status)
+            
+            Divider()
+            
+            PriorityMenu(priority: $updatedItem.priority)
+            
+            Spacer()
         }
+        .padding(.horizontal)
+        .navigationTitle("Details")
     }
 }
 
