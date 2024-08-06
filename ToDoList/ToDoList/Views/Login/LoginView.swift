@@ -24,17 +24,17 @@ struct LoginView: View {
                 .padding(.horizontal)
             
             if vm.isLoggingIn {
-                LoginFields()
+                LoginFields(email: $vm.email, password: $vm.pw)
                 
             } else {
-                SignUpFields()
+                SignUpFields(fname: $vm.fname, lname: $vm.lname, email: $vm.newEmail, password: $vm.newPw)
             }
 
             HStack {
                 Spacer()
                 
                 LoginButton(title: vm.titleText) {
-                    print("tap login Button")
+                    print("tap login  Button")
                 }
             }
             .padding(.horizontal)
