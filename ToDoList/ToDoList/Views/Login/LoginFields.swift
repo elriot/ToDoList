@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct LoginFields: View {
+    @State private var email = ""
     var body: some View {
         VStack(spacing: 12) {
-            // TextField
+            EmailTextField(placeholder: "user@email.com", text: $email)
             
             // TextField
         }
+        .padding(.horizontal)
     }
 }
 
