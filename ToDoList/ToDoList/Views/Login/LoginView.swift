@@ -14,15 +14,22 @@ struct LoginView: View {
             
             LoginTitleView()
             
-            Text("Login")
-                .font(.title)
-                .fontWeight(.semibold)
-                .padding(.horizontal)
+            LoginFields()
+                
             
-//            TextField
+            HStack {
+                Spacer()
+                
+                LoginButton(title: "Login") {
+                    print("tap login Button")
+                }
+            }
+            .padding(.horizontal)
+
             
             Spacer()
         }
+        .padding(.horizontal)
     }
 }
 
