@@ -28,6 +28,8 @@
 		F6D5CBA02C62886400F363AD /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CB9F2C62886400F363AD /* PasswordField.swift */; };
 		F6D5CBA22C628D2A00F363AD /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CBA12C628D2A00F363AD /* LoginButton.swift */; };
 		F6D5CBA42C6297B800F363AD /* TogglePromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CBA32C6297B800F363AD /* TogglePromptView.swift */; };
+		F6D5CBA62C629A6500F363AD /* SignUpFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CBA52C629A6500F363AD /* SignUpFields.swift */; };
+		F6D5CBA82C629ADD00F363AD /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CBA72C629ADD00F363AD /* KeyboardView.swift */; };
 		F6EC3B6A2C61E95B001162B1 /* ListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B692C61E95B001162B1 /* ListVM.swift */; };
 		F6EC3B6C2C61ED07001162B1 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B6B2C61ED07001162B1 /* StatusMenu.swift */; };
 		F6EC3B6E2C61ED77001162B1 /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B6D2C61ED77001162B1 /* TitledTextField.swift */; };
@@ -78,6 +80,8 @@
 		F6D5CB9F2C62886400F363AD /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		F6D5CBA12C628D2A00F363AD /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		F6D5CBA32C6297B800F363AD /* TogglePromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglePromptView.swift; sourceTree = "<group>"; };
+		F6D5CBA52C629A6500F363AD /* SignUpFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFields.swift; sourceTree = "<group>"; };
+		F6D5CBA72C629ADD00F363AD /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		F6EC3B692C61E95B001162B1 /* ListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVM.swift; sourceTree = "<group>"; };
 		F6EC3B6B2C61ED07001162B1 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
 		F6EC3B6D2C61ED77001162B1 /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
@@ -227,10 +231,12 @@
 				F6EC3B752C627EF5001162B1 /* LoginView.swift */,
 				F6D5CB992C62818300F363AD /* LoginTitleView.swift */,
 				F6D5CB9B2C6284DC00F363AD /* LoginFields.swift */,
+				F6D5CBA12C628D2A00F363AD /* LoginButton.swift */,
 				F6D5CB9D2C62858B00F363AD /* EmailTextField.swift */,
 				F6D5CB9F2C62886400F363AD /* PasswordField.swift */,
-				F6D5CBA12C628D2A00F363AD /* LoginButton.swift */,
 				F6D5CBA32C6297B800F363AD /* TogglePromptView.swift */,
+				F6D5CBA52C629A6500F363AD /* SignUpFields.swift */,
+				F6D5CBA72C629ADD00F363AD /* KeyboardView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -374,6 +380,7 @@
 				F6D5CBA42C6297B800F363AD /* TogglePromptView.swift in Sources */,
 				F6EC3B6A2C61E95B001162B1 /* ListVM.swift in Sources */,
 				F62241D52C61992A001A4441 /* Extensions.swift in Sources */,
+				F6D5CBA82C629ADD00F363AD /* KeyboardView.swift in Sources */,
 				F62241CD2C6174DF001A4441 /* HomeView.swift in Sources */,
 				F62241D32C619170001A4441 /* ListItemView.swift in Sources */,
 				F6D5CB9C2C6284DC00F363AD /* LoginFields.swift in Sources */,
@@ -384,6 +391,7 @@
 				F6EC3B6E2C61ED77001162B1 /* TitledTextField.swift in Sources */,
 				F6D5CBA22C628D2A00F363AD /* LoginButton.swift in Sources */,
 				F62241DB2C61E6F6001A4441 /* ItemDetailsView.swift in Sources */,
+				F6D5CBA62C629A6500F363AD /* SignUpFields.swift in Sources */,
 				F6D5CB9A2C62818300F363AD /* LoginTitleView.swift in Sources */,
 				F6EC3B762C627EF5001162B1 /* LoginView.swift in Sources */,
 				F622419F2C616EA6001A4441 /* ToDoListApp.swift in Sources */,

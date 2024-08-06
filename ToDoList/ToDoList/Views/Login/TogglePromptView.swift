@@ -13,6 +13,7 @@ struct TogglePromptView: View {
     @Binding var isLogginIn: Bool
     
     var body: some View {
+        
         HStack {
             Spacer()
             
