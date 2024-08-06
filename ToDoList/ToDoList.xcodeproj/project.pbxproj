@@ -26,6 +26,7 @@
 		F6EC3B6C2C61ED07001162B1 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B6B2C61ED07001162B1 /* StatusMenu.swift */; };
 		F6EC3B6E2C61ED77001162B1 /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B6D2C61ED77001162B1 /* TitledTextField.swift */; };
 		F6EC3B702C61F1A3001162B1 /* PriorityMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B6F2C61F1A3001162B1 /* PriorityMenu.swift */; };
+		F6EC3B722C61F4B6001162B1 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B712C61F4B6001162B1 /* CTAButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		F6EC3B6B2C61ED07001162B1 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
 		F6EC3B6D2C61ED77001162B1 /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
 		F6EC3B6F2C61F1A3001162B1 /* PriorityMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityMenu.swift; sourceTree = "<group>"; };
+		F6EC3B712C61F4B6001162B1 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				F6EC3B6D2C61ED77001162B1 /* TitledTextField.swift */,
 				F6EC3B6B2C61ED07001162B1 /* StatusMenu.swift */,
 				F6EC3B6F2C61F1A3001162B1 /* PriorityMenu.swift */,
+				F6EC3B712C61F4B6001162B1 /* CTAButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				F62241CF2C617867001A4441 /* ListView.swift in Sources */,
 				F62241D72C61D49B001A4441 /* NavPath.swift in Sources */,
 				F6EC3B6C2C61ED07001162B1 /* StatusMenu.swift in Sources */,
+				F6EC3B722C61F4B6001162B1 /* CTAButton.swift in Sources */,
 				F6EC3B6A2C61E95B001162B1 /* ListVM.swift in Sources */,
 				F62241D52C61992A001A4441 /* Extensions.swift in Sources */,
 				F62241CD2C6174DF001A4441 /* HomeView.swift in Sources */,
