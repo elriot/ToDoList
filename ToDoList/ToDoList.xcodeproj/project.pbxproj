@@ -22,11 +22,14 @@
 		F62241D72C61D49B001A4441 /* NavPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D62C61D49B001A4441 /* NavPath.swift */; };
 		F62241D92C61E69D001A4441 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D82C61E69D001A4441 /* NewItemView.swift */; };
 		F62241DB2C61E6F6001A4441 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241DA2C61E6F6001A4441 /* ItemDetailsView.swift */; };
+		F6D5CB9A2C62818300F363AD /* LoginTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CB992C62818300F363AD /* LoginTitleView.swift */; };
+		F6D5CB9C2C6284DC00F363AD /* LoginFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CB9B2C6284DC00F363AD /* LoginFields.swift */; };
 		F6EC3B6A2C61E95B001162B1 /* ListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B692C61E95B001162B1 /* ListVM.swift */; };
 		F6EC3B6C2C61ED07001162B1 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B6B2C61ED07001162B1 /* StatusMenu.swift */; };
 		F6EC3B6E2C61ED77001162B1 /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B6D2C61ED77001162B1 /* TitledTextField.swift */; };
 		F6EC3B702C61F1A3001162B1 /* PriorityMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B6F2C61F1A3001162B1 /* PriorityMenu.swift */; };
 		F6EC3B722C61F4B6001162B1 /* CTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B712C61F4B6001162B1 /* CTAButton.swift */; };
+		F6EC3B762C627EF5001162B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B752C627EF5001162B1 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +68,14 @@
 		F62241D62C61D49B001A4441 /* NavPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavPath.swift; sourceTree = "<group>"; };
 		F62241D82C61E69D001A4441 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		F62241DA2C61E6F6001A4441 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
+		F6D5CB992C62818300F363AD /* LoginTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTitleView.swift; sourceTree = "<group>"; };
+		F6D5CB9B2C6284DC00F363AD /* LoginFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFields.swift; sourceTree = "<group>"; };
 		F6EC3B692C61E95B001162B1 /* ListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVM.swift; sourceTree = "<group>"; };
 		F6EC3B6B2C61ED07001162B1 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
 		F6EC3B6D2C61ED77001162B1 /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
 		F6EC3B6F2C61F1A3001162B1 /* PriorityMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityMenu.swift; sourceTree = "<group>"; };
 		F6EC3B712C61F4B6001162B1 /* CTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAButton.swift; sourceTree = "<group>"; };
+		F6EC3B752C627EF5001162B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +216,9 @@
 		F6EC3B742C627E71001162B1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				F6EC3B752C627EF5001162B1 /* LoginView.swift */,
+				F6D5CB992C62818300F363AD /* LoginTitleView.swift */,
+				F6D5CB9B2C6284DC00F363AD /* LoginFields.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -354,10 +363,13 @@
 				F62241D52C61992A001A4441 /* Extensions.swift in Sources */,
 				F62241CD2C6174DF001A4441 /* HomeView.swift in Sources */,
 				F62241D32C619170001A4441 /* ListItemView.swift in Sources */,
+				F6D5CB9C2C6284DC00F363AD /* LoginFields.swift in Sources */,
 				F62241A12C616EA6001A4441 /* ContentView.swift in Sources */,
 				F6EC3B702C61F1A3001162B1 /* PriorityMenu.swift in Sources */,
 				F6EC3B6E2C61ED77001162B1 /* TitledTextField.swift in Sources */,
 				F62241DB2C61E6F6001A4441 /* ItemDetailsView.swift in Sources */,
+				F6D5CB9A2C62818300F363AD /* LoginTitleView.swift in Sources */,
+				F6EC3B762C627EF5001162B1 /* LoginView.swift in Sources */,
 				F622419F2C616EA6001A4441 /* ToDoListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
