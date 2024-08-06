@@ -16,11 +16,9 @@ struct LoginButton: View {
                 Text(title)
                     .font(.largeTitle)
                     .padding()
-                    .foregroundColor(.white)
-//                    .foregroundColor(
-//                        LinearGradient(colors: [.lightGray, .white], startPoint: .leading, endPoint: .trailing)
-//                    )
-                    
+                    .foregroundStyle (
+                        LinearGradient(colors: [.lightGray, .white], startPoint: .leading, endPoint: .trailing)
+                    )
                 
                 Image(systemName: "arrow.right")
                     .resizable()
