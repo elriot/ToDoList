@@ -9,9 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var text = "Don't have an account?"
-    @State private var prompt = "Sign up here"
-    @State private var isLoggingIn = true
+    @StateObject var vm = LoginVM()
 //    @State private var title = "Login"
     
     var body: some View {
@@ -20,12 +18,12 @@ struct LoginView: View {
             
             LoginTitleView()
             
-            Text(isLoggingIn ? "Login" : "Sign Up")
+            Text(vm.titleText)
                 .font(.title)
                 .fontWeight(.semibold)
                 .padding(.horizontal)
             
-            if isLoggingIn {
+            if vm.isLoggingIn {
                 LoginFields()
                 
             } else {
@@ -35,7 +33,7 @@ struct LoginView: View {
             HStack {
                 Spacer()
                 
-                LoginButton(title: "Login") {
+                LoginButton(title: vm.titleText) {
                     print("tap login Button")
                 }
             }
@@ -43,7 +41,7 @@ struct LoginView: View {
             
             Spacer()
             
-            TogglePromptView(text: $text, prompt: $prompt, isLogginIn: $isLoggingIn)
+            TogglePromptView(text: $vm.toggleText, prompt: $vm.prompt, isLogginIn: $vm.isLoggingIn)
         }
         .padding(.horizontal)
     }
