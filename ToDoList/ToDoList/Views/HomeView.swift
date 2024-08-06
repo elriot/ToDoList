@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var path = NavigationPath()
+    @State private var path: [NavPath] = []
     @State private var todoItems: [Item] = [
         Item(id: "abcd123", authorId: "John Doe", title: "First item", description: "First", startDate: .now, status: .todo, priority: .low),
         Item(id: "1234", authorId: "John Doe two", title: "Second item", description: "Second", startDate: .now + 5, status: .inProgress, priority: .medium),
@@ -27,7 +27,7 @@ struct HomeView: View {
     ]
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             ZStack {
                 Color.background
                     .ignoresSafeArea()
@@ -54,14 +54,19 @@ struct HomeView: View {
                 
                 ToolbarItem(placement: .topBarTrailing, content: {
                     Button {
-                        print("Navigato to new item")
+                        path.append(.newItem)
                     } label: {
                         Image(systemName: "plus")
                     }
                 })
             }
-            .navigationDestination(for: String.self) { _ in
-                Text("New View Here")
+            .navigationDestination(for: NavPath.self) { path in
+                switch path {
+                case .newItem:
+                    Text("New item here!!")
+                case .details:
+                    Text("Item detail view here?!")
+                }
                 
             }
         }
