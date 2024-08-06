@@ -63,7 +63,7 @@ struct HomeView: View {
             .navigationDestination(for: NavPath.self) { path in
                 switch path {
                 case .newItem:
-                    Text("New item here!!")
+                    NewItemView()
                 case .details(let item):
                     Text(item.title)
                 }
