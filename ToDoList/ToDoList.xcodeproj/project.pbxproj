@@ -166,15 +166,8 @@
 		F62241C92C61711E001A4441 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F62241CC2C6174DF001A4441 /* HomeView.swift */,
-				F62241CE2C617867001A4441 /* ListView.swift */,
-				F62241D22C619170001A4441 /* ListItemView.swift */,
-				F62241D82C61E69D001A4441 /* NewItemView.swift */,
-				F62241DA2C61E6F6001A4441 /* ItemDetailsView.swift */,
-				F6EC3B6D2C61ED77001162B1 /* TitledTextField.swift */,
-				F6EC3B6B2C61ED07001162B1 /* StatusMenu.swift */,
-				F6EC3B6F2C61F1A3001162B1 /* PriorityMenu.swift */,
-				F6EC3B712C61F4B6001162B1 /* CTAButton.swift */,
+				F6EC3B742C627E71001162B1 /* Login */,
+				F6EC3B732C627E4D001162B1 /* ToDo */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,6 +189,29 @@
 				F62241D42C61992A001A4441 /* Extensions.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		F6EC3B732C627E4D001162B1 /* ToDo */ = {
+			isa = PBXGroup;
+			children = (
+				F62241CC2C6174DF001A4441 /* HomeView.swift */,
+				F62241CE2C617867001A4441 /* ListView.swift */,
+				F62241D22C619170001A4441 /* ListItemView.swift */,
+				F62241D82C61E69D001A4441 /* NewItemView.swift */,
+				F62241DA2C61E6F6001A4441 /* ItemDetailsView.swift */,
+				F6EC3B6D2C61ED77001162B1 /* TitledTextField.swift */,
+				F6EC3B6B2C61ED07001162B1 /* StatusMenu.swift */,
+				F6EC3B6F2C61F1A3001162B1 /* PriorityMenu.swift */,
+				F6EC3B712C61F4B6001162B1 /* CTAButton.swift */,
+			);
+			path = ToDo;
+			sourceTree = "<group>";
+		};
+		F6EC3B742C627E71001162B1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
