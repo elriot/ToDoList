@@ -22,6 +22,7 @@
 		F62241D72C61D49B001A4441 /* NavPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D62C61D49B001A4441 /* NavPath.swift */; };
 		F62241D92C61E69D001A4441 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241D82C61E69D001A4441 /* NewItemView.swift */; };
 		F62241DB2C61E6F6001A4441 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62241DA2C61E6F6001A4441 /* ItemDetailsView.swift */; };
+		F6EC3B6A2C61E95B001162B1 /* ListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EC3B692C61E95B001162B1 /* ListVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		F62241D62C61D49B001A4441 /* NavPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavPath.swift; sourceTree = "<group>"; };
 		F62241D82C61E69D001A4441 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		F62241DA2C61E6F6001A4441 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
+		F6EC3B692C61E95B001162B1 /* ListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				F62241D62C61D49B001A4441 /* NavPath.swift */,
+				F6EC3B692C61E95B001162B1 /* ListVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				F62241D12C617B20001A4441 /* Item.swift in Sources */,
 				F62241CF2C617867001A4441 /* ListView.swift in Sources */,
 				F62241D72C61D49B001A4441 /* NavPath.swift in Sources */,
+				F6EC3B6A2C61E95B001162B1 /* ListVM.swift in Sources */,
 				F62241D52C61992A001A4441 /* Extensions.swift in Sources */,
 				F62241CD2C6174DF001A4441 /* HomeView.swift in Sources */,
 				F62241D32C619170001A4441 /* ListItemView.swift in Sources */,
