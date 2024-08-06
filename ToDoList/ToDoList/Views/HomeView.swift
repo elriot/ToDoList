@@ -9,22 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State private var vm = ListVM()
     @State private var path: [NavPath] = []
-    @State private var todoItems: [Item] = [
-        Item(id: "abcd123", authorId: "John Doe", title: "First item", description: "First", startDate: .now, status: .todo, priority: .low),
-        Item(id: "1234", authorId: "John Doe two", title: "Second item", description: "Second", startDate: .now + 5, status: .inProgress, priority: .medium),
-        Item(id: "4567", authorId: "John Doe three", title: "Third item", description: "Third", startDate: .now + 10, status: .todo, priority: .low)
-    ]
-    @State private var inProgressItems: [Item] = [
-        Item(id: "abcd123", authorId: "John Doe", title: "First item", description: "First", startDate: .now, status: .todo, priority: .low),
-        Item(id: "1234", authorId: "John Doe two", title: "Second item", description: "Second", startDate: .now + 5, status: .inProgress, priority: .medium),
-        Item(id: "4567", authorId: "John Doe three", title: "Third item", description: "Third", startDate: .now + 10, status: .todo, priority: .low)
-    ]
-    @State private var doneitems: [Item] = [
-        Item(id: "abcd123", authorId: "John Doe", title: "First item", description: "First", startDate: .now, status: .todo, priority: .low),
-        Item(id: "1234", authorId: "John Doe two", title: "Second item", description: "Second", startDate: .now + 5, status: .inProgress, priority: .medium),
-        Item(id: "4567", authorId: "John Doe three", title: "Third item", description: "Third", startDate: .now + 10, status: .todo, priority: .low)
-    ]
+    @State private var showLogout: Bool = false
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -33,11 +20,11 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 
                 TabView {
-                    ListView(title: "To Do", items: $todoItems)
+                    ListView(title: "To Do", items: $vm.todoItems)
                     
-                    ListView(title: "In Progress", items: $inProgressItems)
+                    ListView(title: "In Progress", items: $vm.inProgressItems)
                     
-                    ListView(title: "Done", items: $doneitems)
+                    ListView(title: "Done", items: $vm.doneItems)
                 }
                 .tabViewStyle(.page)
             }
@@ -46,7 +33,7 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading, content: {
                     Button {
-                        print("Logout")
+                        showLogout = true
                     } label: {
                         Image(systemName: "person.circle")
                     }
@@ -68,6 +55,14 @@ struct HomeView: View {
                     ItemDetailsView(item: item)
                 }
                 
+            }
+            .confirmationDialog("Continue signing out?", isPresented: $showLogout){
+                Button("Confirm", role: .destructive){
+                    print("logout user here")
+                }
+                Button("Cancel", role: .cancel){}
+            } message: {
+                Text("Continue signing out?")
             }
         }
 

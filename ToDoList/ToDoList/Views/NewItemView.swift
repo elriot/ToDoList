@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct NewItemView: View {
+    @State private var text = ""
+    @State private var description = ""
+    @State private var item = Item(id: "abcd", authorId: "John", title: "leetcode", description: "Solve easy problem tomorrow", status: .todo, priority: .high)
+    
     var body: some View {
-        Text("create new item here! haha")
+        VStack(spacing: 10) {
+             
+            Spacer()
+            
+            TitledTextField(title: "Title", placeholder: "What do you need to do?", text: $text)
+            
+            Divider()
+            
+            TitledTextField(title: "Description", placeholder: "Add a brief description", text: $description)
+            
+            Divider()
+            
+            StatusMenu(status: $item.status)
+            
+            Divider()
+            
+            PriorityMenu(priority: $item.priority)
+            
+            Spacer()
+            
+            CTAButton(title: "Confirm", action: {
+                print("tap confirm")
+            })
+        }
+        .padding(.horizontal)
     }
 }
 
