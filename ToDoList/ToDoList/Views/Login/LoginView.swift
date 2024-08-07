@@ -33,11 +33,7 @@ struct LoginView: View {
                 Spacer()
                 
                 LoginButton(title: vm.titleText) {
-                    if vm.isLoggingIn {
-                        print("Login here")
-                    } else {
-                        vm.signUp()
-                    }
+                    vm.didTapLoginButton()
                 }
             }
             .padding(.horizontal)

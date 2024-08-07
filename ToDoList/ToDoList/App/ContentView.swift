@@ -12,7 +12,9 @@ struct ContentView: View {
     var body: some View {
         switch vm.loginStatus {
         case .unknown:
-            Text("unknown")
+            ProgressView()
+                .progressViewStyle(.circular)
+                .scaleEffect(2)
         case .loggedIn:
             HomeView()
         case .loggedOut:
