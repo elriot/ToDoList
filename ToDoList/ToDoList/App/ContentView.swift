@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @StateObject private var vm = LoginVM()
     var body: some View {
-        LoginView()
+        switch vm.loginStatus {
+        case .unknown:
+            Text("unknown")
+        case .loggedIn:
+            HomeView()
+        case .loggedOut:
+            LoginView()
+                .environmentObject(vm)
+        }
     }
 }
 
