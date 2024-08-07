@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct Item: Identifiable, Equatable, Hashable {
     let id: String
@@ -19,6 +20,24 @@ struct Item: Identifiable, Equatable, Hashable {
     static func == (lhs: Item, rhs: Item) -> Bool {
         return lhs.id == rhs.id
     }
+    
+    init(data: [String: Any]) {
+        id = data["id"] as! String
+        authorId = data["authorId"] as! String
+        title = data["title"] as! String
+        description = data["description"] as! String
+        
+        // firebase startdate is timestamp object
+        let timestamp = data["startDate"] as! Timestamp
+        startDate = timestamp.dateValue()
+        
+        let statusString = data["status"] as! String
+        status = Status(statusString)
+        
+        let priorityString = data["priority"] as! String
+        priority = Priority(priorityString)
+    }
+
 }
 
 enum Status: String, CaseIterable {

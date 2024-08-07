@@ -27,6 +27,7 @@
 		F6232CD82C62BBF000C1F60D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6232CD72C62BBEF00C1F60D /* GoogleService-Info.plist */; };
 		F6232CDB2C62BCE200C1F60D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F6232CDA2C62BCE200C1F60D /* FirebaseAuth */; };
 		F6232CDD2C62BCE200C1F60D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F6232CDC2C62BCE200C1F60D /* FirebaseFirestore */; };
+		F6232CE12C64384900C1F60D /* ItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6232CE02C64384900C1F60D /* ItemsManager.swift */; };
 		F6D5CB9A2C62818300F363AD /* LoginTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CB992C62818300F363AD /* LoginTitleView.swift */; };
 		F6D5CB9C2C6284DC00F363AD /* LoginFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CB9B2C6284DC00F363AD /* LoginFields.swift */; };
 		F6D5CB9E2C62858B00F363AD /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CB9D2C62858B00F363AD /* EmailTextField.swift */; };
@@ -82,6 +83,7 @@
 		F6232CD32C62A1A300C1F60D /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		F6232CD52C62B9B800C1F60D /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		F6232CD72C62BBEF00C1F60D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F6232CE02C64384900C1F60D /* ItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsManager.swift; sourceTree = SOURCE_ROOT; };
 		F6D5CB992C62818300F363AD /* LoginTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTitleView.swift; sourceTree = "<group>"; };
 		F6D5CB9B2C6284DC00F363AD /* LoginFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFields.swift; sourceTree = "<group>"; };
 		F6D5CB9D2C62858B00F363AD /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				F62241A02C616EA6001A4441 /* ContentView.swift */,
 				F62241D42C61992A001A4441 /* Extensions.swift */,
 				F6232CD52C62B9B800C1F60D /* LoginManager.swift */,
+				F6232CE02C64384900C1F60D /* ItemsManager.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6232CE12C64384900C1F60D /* ItemsManager.swift in Sources */,
 				F62241D92C61E69D001A4441 /* NewItemView.swift in Sources */,
 				F62241D12C617B20001A4441 /* Item.swift in Sources */,
 				F62241CF2C617867001A4441 /* ListView.swift in Sources */,

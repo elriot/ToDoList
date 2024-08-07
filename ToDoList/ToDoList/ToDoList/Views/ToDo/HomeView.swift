@@ -65,7 +65,10 @@ struct HomeView: View {
                 Text("Continue signing out?")
             }
         }
-
+        .onAppear {
+            // fetching logic
+            vm.fetchItems()
+        }
     }
 }
 
