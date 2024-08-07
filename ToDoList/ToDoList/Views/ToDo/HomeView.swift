@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    @EnvironmentObject var loginVM: LoginVM
     @State private var vm = ListVM()
     @State private var path: [NavPath] = []
     @State private var showLogout: Bool = false
@@ -58,7 +58,7 @@ struct HomeView: View {
             }
             .confirmationDialog("Continue signing out?", isPresented: $showLogout){
                 Button("Confirm", role: .destructive){
-                    print("logout user here")
+                    loginVM.signOut()
                 }
                 Button("Cancel", role: .cancel){}
             } message: {

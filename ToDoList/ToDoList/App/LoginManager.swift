@@ -75,7 +75,6 @@ final class LoginManager {
         } catch {
             print(error)
         }
-        
     }
     
     func setupListener() {
