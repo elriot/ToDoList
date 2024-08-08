@@ -25,7 +25,40 @@ final class ListVM: Observable {
     ]
     @Published var unknown: [Item] = []
     
+    init() {
+        IM.shared.delegate = self
+    }
+    
     func fetchItems() {
         IM.shared.fetchItems()
+    }
+}
+
+extension ListVM: ItemsManagerDelegate {
+    func didFetchBetchItems(_ items: [Status: [Item]]) {
+        for status in items.keys {
+            switch status {
+            case .todo:
+                todoItems = items[status]!
+            case .inProgress:
+                inProgressItems = items[status]!
+            case .done:
+                doneItems = items[status]!
+            case .unknown:
+                continue
+            }
+        }
+    }
+    
+    func didAddItem(_ item: Item) {
+        <#code#>
+    }
+    
+    func didUpdateItem(_ item: Item) {
+        <#code#>
+    }
+    
+    func didDeleteItem(_ item: Item) {
+        <#code#>
     }
 }

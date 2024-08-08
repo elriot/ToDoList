@@ -37,6 +37,16 @@ struct Item: Identifiable, Equatable, Hashable {
         let priorityString = data["priority"] as! String
         priority = Priority(priorityString)
     }
+    
+    init(id: String, authorId: String, title: String, description: String, startDate: Date, status: Status, priority: Priority) {
+        self.id = id
+        self.authorId = authorId
+        self.title = title
+        self.description = description
+        self.startDate = startDate
+        self.status = status
+        self.priority = priority
+    }
 
 }
 
