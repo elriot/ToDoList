@@ -42,10 +42,11 @@ final class ItemsManager {
     
             snapshot.documentChanges.forEach { [weak self] diff in
                 guard let self else { return }
-                let data = diff.document.data()
+                var data = diff.document.data()
+                data["id"] = diff.document.documentID
+                
                 let item = Item(data: data)
-                dump("data : \(data)")
-                dump("item: \(item)")
+
                 switch diff.type {
                 case .added:
                     if isInitialFetch {
