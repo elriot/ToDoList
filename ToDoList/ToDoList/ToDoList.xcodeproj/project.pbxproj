@@ -29,6 +29,7 @@
 		F6232CDD2C62BCE200C1F60D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F6232CDC2C62BCE200C1F60D /* FirebaseFirestore */; };
 		F6232CE12C64384900C1F60D /* ItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6232CE02C64384900C1F60D /* ItemsManager.swift */; };
 		F67CB4842C656320009162FC /* NewItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67CB4832C656320009162FC /* NewItemVM.swift */; };
+		F681BF7E2C65869C000AD438 /* ItemDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F681BF7D2C65869C000AD438 /* ItemDetailsVM.swift */; };
 		F6D5CB9A2C62818300F363AD /* LoginTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CB992C62818300F363AD /* LoginTitleView.swift */; };
 		F6D5CB9C2C6284DC00F363AD /* LoginFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CB9B2C6284DC00F363AD /* LoginFields.swift */; };
 		F6D5CB9E2C62858B00F363AD /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5CB9D2C62858B00F363AD /* EmailTextField.swift */; };
@@ -86,6 +87,7 @@
 		F6232CD72C62BBEF00C1F60D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6232CE02C64384900C1F60D /* ItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsManager.swift; sourceTree = SOURCE_ROOT; };
 		F67CB4832C656320009162FC /* NewItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemVM.swift; sourceTree = "<group>"; };
+		F681BF7D2C65869C000AD438 /* ItemDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsVM.swift; sourceTree = "<group>"; };
 		F6D5CB992C62818300F363AD /* LoginTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTitleView.swift; sourceTree = "<group>"; };
 		F6D5CB9B2C6284DC00F363AD /* LoginFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFields.swift; sourceTree = "<group>"; };
 		F6D5CB9D2C62858B00F363AD /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				F6EC3B692C61E95B001162B1 /* ListVM.swift */,
 				F6232CD32C62A1A300C1F60D /* LoginVM.swift */,
 				F67CB4832C656320009162FC /* NewItemVM.swift */,
+				F681BF7D2C65869C000AD438 /* ItemDetailsVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				F6D5CBA02C62886400F363AD /* PasswordField.swift in Sources */,
 				F6EC3B702C61F1A3001162B1 /* PriorityMenu.swift in Sources */,
 				F6EC3B6E2C61ED77001162B1 /* TitledTextField.swift in Sources */,
+				F681BF7E2C65869C000AD438 /* ItemDetailsVM.swift in Sources */,
 				F6D5CBA22C628D2A00F363AD /* LoginButton.swift in Sources */,
 				F62241DB2C61E6F6001A4441 /* ItemDetailsView.swift in Sources */,
 				F6D5CBA62C629A6500F363AD /* SignUpFields.swift in Sources */,
