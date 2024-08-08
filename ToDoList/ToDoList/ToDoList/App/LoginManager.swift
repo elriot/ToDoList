@@ -57,8 +57,8 @@ final class LoginManager {
             do {
                 let result = try await Auth.auth().signIn(withEmail: email, password: pw)
                 currentUser = result.user
-                dump("currentUser \(currentUser)")
-                print("successfully signed in user!")
+//                dump("currentUser \(currentUser)")
+//                print("successfully signed in user!")
                 setupListener()
             } catch {
                 print(error)

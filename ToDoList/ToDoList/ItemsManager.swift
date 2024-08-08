@@ -44,7 +44,8 @@ final class ItemsManager {
                 guard let self else { return }
                 let data = diff.document.data()
                 let item = Item(data: data)
-
+                dump("data : \(data)")
+                dump("item: \(item)")
                 switch diff.type {
                 case .added:
                     if isInitialFetch {
@@ -71,6 +72,6 @@ final class ItemsManager {
             sortedItems[status] = allItems[status]?.values.sorted(by: { $0.startDate > $1.startDate
             })
         }
-        delegate?.didFetchBetchItems(sortedItems)
+        delegate?.didFetchBatchItems(sortedItems)
     }
 }

@@ -23,7 +23,7 @@ final class ListVM: Observable {
 }
 
 extension ListVM: ItemsManagerDelegate {
-    func didFetchBetchItems(_ items: [Status: [Item]]) {
+    func didFetchBatchItems(_ items: [Status : [Item]]) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             for status in items.keys {
