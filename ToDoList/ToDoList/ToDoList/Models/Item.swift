@@ -59,8 +59,8 @@ struct Item: Identifiable, Equatable, Hashable {
         data["title"] = title
         data["description"] = description
         data["startDate"] = Timestamp(date: startDate)
-        data["status"] = status
-        data["priority"] = priority
+        data["status"] = status.toString()//status.rawValue
+        data["priority"] = status.toString()//priority.rawValue
         return data
     }
 }
@@ -79,6 +79,20 @@ enum Status: String, CaseIterable {
         default : .unknown
         }
     }
+    
+    func toString() -> String {
+        switch self {
+            
+        case .todo:
+            return "todo"
+        case .inProgress:
+            return "inprogress"
+        case .done:
+            return "done"
+        case .unknown:
+            return ""
+        }
+    }
 }
 
 enum Priority: String, CaseIterable {
@@ -93,6 +107,20 @@ enum Priority: String, CaseIterable {
         case "medium" : .medium
         case "high" : .high
         default : .unknown
+        }
+    }
+    
+    func toString() -> String {
+        switch self {
+            
+        case .low:
+            return "low"
+        case .medium:
+            return "medium"
+        case .high:
+            return "high"
+        case .unknown:
+            return ""
         }
     }
 

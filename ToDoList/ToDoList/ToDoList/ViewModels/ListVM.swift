@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ListVM: Observable {
+final class ListVM: ObservableObject {
     @Published var todoItems: [Item] = []
     @Published var inProgressItems: [Item] = []
     @Published var doneItems: [Item] = []
@@ -19,6 +19,7 @@ final class ListVM: Observable {
     
     func fetchItems() {
         if todoItems.isEmpty && inProgressItems.isEmpty && doneItems.isEmpty {
+            print("fetch items : \(#function)")
             IM.shared.fetchItems()
         }
     }

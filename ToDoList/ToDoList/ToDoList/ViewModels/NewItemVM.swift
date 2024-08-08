@@ -10,6 +10,8 @@ import FirebaseAuth
 
 final class NewItemVM: ObservableObject {
     @Published var newItem = Item.empty()
+    @Published var saveItemError = false
+    @Published var didSaveItem = false
     
     init() {
         guard let user = Auth.auth().currentUser else { return }
@@ -24,7 +26,18 @@ final class NewItemVM: ObservableObject {
         )
     }
     
-    func saveNewItem() async throws {
-        try await IM.shared.saveItem(newItem)
+    func saveNewItem() {
+        Task {
+            do {
+                try await IM.shared.saveItem(newItem)
+                DispatchQueue.main.async {
+                    self.didSaveItem = true
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.saveItemError = true
+                }
+            }
+        }
     }
 }
