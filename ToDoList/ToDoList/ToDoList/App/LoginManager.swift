@@ -36,7 +36,7 @@ final class LoginManager {
         Task {
             do {
                 let result = try await Auth.auth().createUser(withEmail: email, password: pw)
-                let currentUser = result.user
+//                let currentUser = result.user
                 let id = result.user.uid
                 try await db.collection("Users").document(id).setData([
                     "fname": fname,

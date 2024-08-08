@@ -67,6 +67,7 @@ struct HomeView: View {
         }
         .onAppear {
             // fetching logic
+            
             vm.fetchItems()
         }
     }
