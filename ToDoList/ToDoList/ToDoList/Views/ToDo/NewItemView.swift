@@ -10,7 +10,7 @@ import SwiftUI
 struct NewItemView: View {
     @State private var text = ""
     @State private var description = ""
-    @State private var item = Item(id: "abcd", authorId: "John", title: "leetcode", description: "Solve easy problem tomorrow", status: .todo, priority: .high)
+    @State private var item = Item(id: "abcd", authorId: "John", title: "leetcode", description: "Solve easy problem tomorrow", startDate: .now, status: .todo, priority: .high)
     
     var body: some View {
         VStack(spacing: 10) {

@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 protocol ItemsManagerDelegate where Self: ListVM {
-    func didFetchBetchItems(_ items: [Status: [Item]])
+    func didFetchBatchItems(_ items: [Status: [Item]])
     func didAddItem(_ item: Item)
     func didUpdateItem(_ item: Item)
     func didDeleteItem(_ item: Item)
@@ -23,10 +23,10 @@ final class ItemsManager {
     weak var delegate: ItemsManagerDelegate?
     private var isInitialFetch = true
     private init() {}
-    private var allItems: [Status: [Item]] = [
-        .todo: [],
-        .inProgress: [],
-        .done: []
+    private var allItems: [Status: [String : Item]] = [
+        .todo: [:],
+        .inProgress: [:],
+        .done: [:]
     ]
     
     func fetchItems() {
@@ -44,11 +44,11 @@ final class ItemsManager {
                 guard let self else { return }
                 let data = diff.document.data()
                 let item = Item(data: data)
-                dump("data \(data)")
+
                 switch diff.type {
                 case .added:
                     if isInitialFetch {
-                        allItems[item.status]?.append(item)
+                        allItems[item.status]?[item.id] = item
                     } else {
                         delegate?.didAddItem(item)
                     }
@@ -59,19 +59,18 @@ final class ItemsManager {
                 }
             }
             guard isInitialFetch else { return }
-            delegate?.didFetchBetchItems(allItems)
+            sortBatchItems()
             isInitialFetch = false
         }
     }
     
     private func sortBatchItems() {
-        // perform sorting logic
         var sortedItems: [Status: [Item]] = [:]
+
         allItems.keys.forEach { status in
-            sortedItems[status] = allItems[status]?.sorted(by: { $0.startDate > $1.startDate
+            sortedItems[status] = allItems[status]?.values.sorted(by: { $0.startDate > $1.startDate
             })
         }
-        
-        delegate?.didFetchBetchItems(allItems)
+        delegate?.didFetchBetchItems(sortedItems)
     }
 }
