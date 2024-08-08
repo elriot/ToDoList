@@ -20,11 +20,11 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 
                 TabView {
-                    ListView(title: Status.todo.rawValue, items: $vm.todoItems)
+                    ListView(title: Status.todo.rawValue, items: $vm.todoItems, shouldReDraw: $vm.shouldReDraw)
                     
-                    ListView(title: Status.inProgress.rawValue, items: $vm.inProgressItems)
+                    ListView(title: Status.inProgress.rawValue, items: $vm.inProgressItems, shouldReDraw: $vm.shouldReDraw)
                     
-                    ListView(title: Status.done.rawValue, items: $vm.doneItems)
+                    ListView(title: Status.done.rawValue, items: $vm.doneItems, shouldReDraw: $vm.shouldReDraw)
                 }
                 .tabViewStyle(.page)
             }
@@ -52,7 +52,7 @@ struct HomeView: View {
                 case .newItem:
                     NewItemView(path: $path)
                 case .details(let item):
-                    ItemDetailsView(item: item)
+                    ItemDetailsView(item: item, path: $path)
                 }
                 
             }
