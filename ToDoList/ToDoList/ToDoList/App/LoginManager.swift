@@ -37,7 +37,7 @@ final class LoginManager {
             do {
                 let result = try await Auth.auth().createUser(withEmail: email, password: pw)
                 let currentUser = result.user
-                let id = result.user.uid
+                let id = currentUser.uid
                 try await db.collection("Users").document(id).setData([
                     "fname": fname,
                     "lname": lname,
@@ -57,7 +57,8 @@ final class LoginManager {
             do {
                 let result = try await Auth.auth().signIn(withEmail: email, password: pw)
                 currentUser = result.user
-                print("successfully signed in user!")
+//                dump("currentUser \(currentUser)")
+//                print("successfully signed in user!")
                 setupListener()
             } catch {
                 print(error)

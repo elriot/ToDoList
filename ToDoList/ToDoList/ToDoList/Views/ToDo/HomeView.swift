@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var loginVM: LoginVM
-    @State private var vm = ListVM()
+    @StateObject private var vm = ListVM()
     @State private var path: [NavPath] = []
     @State private var showLogout: Bool = false
     
@@ -20,11 +20,11 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 
                 TabView {
-                    ListView(title: "To Do", items: $vm.todoItems)
+                    ListView(title: Status.todo.rawValue, items: $vm.todoItems)
                     
-                    ListView(title: "In Progress", items: $vm.inProgressItems)
+                    ListView(title: Status.inProgress.rawValue, items: $vm.inProgressItems)
                     
-                    ListView(title: "Done", items: $vm.doneItems)
+                    ListView(title: Status.done.rawValue, items: $vm.doneItems)
                 }
                 .tabViewStyle(.page)
             }
@@ -50,7 +50,7 @@ struct HomeView: View {
             .navigationDestination(for: NavPath.self) { path in
                 switch path {
                 case .newItem:
-                    NewItemView()
+                    NewItemView(path: $path)
                 case .details(let item):
                     ItemDetailsView(item: item)
                 }
@@ -65,7 +65,10 @@ struct HomeView: View {
                 Text("Continue signing out?")
             }
         }
-
+        .onAppear {
+            print("onappar!")
+            vm.fetchItems()
+        }
     }
 }
 

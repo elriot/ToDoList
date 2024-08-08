@@ -7,21 +7,110 @@
 
 import Foundation
 
-final class ListVM: Observable {
-    @Published var todoItems: [Item] = [
-        Item(id: "abcd123", authorId: "John Doe", title: "First item", description: "First", startDate: .now, status: .todo, priority: .low),
-        Item(id: "1234", authorId: "John Doe two", title: "Second item", description: "Second", startDate: .now + 5, status: .inProgress, priority: .medium),
-        Item(id: "4567", authorId: "John Doe three", title: "Third item", description: "Third", startDate: .now + 10, status: .todo, priority: .low)
-    ]
-    @Published var inProgressItems: [Item] = [
-        Item(id: "abcd123", authorId: "John Doe", title: "First item", description: "First", startDate: .now, status: .todo, priority: .low),
-        Item(id: "1234", authorId: "John Doe two", title: "Second item", description: "Second", startDate: .now + 5, status: .inProgress, priority: .medium),
-        Item(id: "4567", authorId: "John Doe three", title: "Third item", description: "Third", startDate: .now + 10, status: .todo, priority: .low)
-    ]
-    @Published var doneItems: [Item] = [
-        Item(id: "abcd123", authorId: "John Doe", title: "First item", description: "First", startDate: .now, status: .todo, priority: .low),
-        Item(id: "1234", authorId: "John Doe two", title: "Second item", description: "Second", startDate: .now + 5, status: .inProgress, priority: .medium),
-        Item(id: "4567", authorId: "John Doe three", title: "Third item", description: "Third", startDate: .now + 10, status: .todo, priority: .low)
-    ]
+final class ListVM: ObservableObject {
+    @Published var todoItems: [Item] = []
+    @Published var inProgressItems: [Item] = []
+    @Published var doneItems: [Item] = []
     @Published var unknown: [Item] = []
+    
+    init() {
+        IM.shared.delegate = self
+    }
+    
+    func fetchItems() {
+        if todoItems.isEmpty && inProgressItems.isEmpty && doneItems.isEmpty {
+//            print("fetch items : \(#function)")
+            IM.shared.fetchItems()
+        }
+    }
+}
+
+extension ListVM: ItemsManagerDelegate {
+    func didFetchBatchItems(_ items: [Status : [Item]]) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            for status in items.keys {
+                switch status {
+                case .todo:
+                    todoItems = items[status]!
+                case .inProgress:
+                    inProgressItems = items[status]!
+                case .done:
+                    doneItems = items[status]!
+                case .unknown:
+                    continue
+                }
+            }
+        }
+    }
+    
+    func didAddItem(_ item: Item) {
+        moveItem(item)
+    }
+    
+    func moveItem(_ item: Item){
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            switch item.status {
+            case .todo:
+                todoItems.append(item)
+            case .inProgress:
+                inProgressItems.append(item)
+            case .done:
+                doneItems.append(item)
+            case .unknown:
+                break
+            }
+        }
+    }
+    
+    func didUpdateItem(_ item: Item) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            if let i = todoItems.firstIndex(of: item) {
+                if todoItems[i].status == item.status {
+                     todoItems[i] = item
+                } else {
+                    todoItems.remove(at: i)
+                    moveItem(item)
+                }
+            } else if let i = inProgressItems.firstIndex(of: item) {
+                if inProgressItems[i].status == item.status {
+                    inProgressItems[i] = item
+                } else {
+                    inProgressItems.remove(at: i)
+                    moveItem(item)
+                }
+            } else if let i = doneItems.firstIndex(of: item) {
+                if doneItems[i].status == item.status {
+                    doneItems[i] = item
+                } else {
+                    doneItems.remove(at: i)
+                    moveItem(item)
+                }
+            }
+        }
+    }
+    
+    func didDeleteItem(_ item: Item) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            switch item.status {
+            case .todo:
+                if let i = todoItems.firstIndex(of: item) {
+                    todoItems.remove(at: i)
+                }
+            case .inProgress:
+                if let i = inProgressItems.firstIndex(of: item) {
+                    inProgressItems.remove(at: i)
+                }
+            case .done:
+                if let i = doneItems.firstIndex(of: item) {
+                    doneItems.remove(at: i)
+                }
+            case .unknown:
+                break
+            }
+        }
+    }
 }
