@@ -19,7 +19,7 @@ final class ListVM: ObservableObject {
     
     func fetchItems() {
         if todoItems.isEmpty && inProgressItems.isEmpty && doneItems.isEmpty {
-            print("fetch items : \(#function)")
+//            print("fetch items : \(#function)")
             IM.shared.fetchItems()
         }
     }

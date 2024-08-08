@@ -19,21 +19,35 @@ protocol ItemsManagerDelegate where Self: ListVM {
 typealias IM = ItemsManager
 final class ItemsManager {
     static let shared = ItemsManager()
-    private let db = Firestore.firestore()
-    weak var delegate: ItemsManagerDelegate?
-    private var isInitialFetch = true
     private init() {}
+    
+    weak var delegate: ItemsManagerDelegate?
+    private let db = Firestore.firestore()
+    private var listener: ListenerRegistration?
+    
+    private var isInitialFetch = true
+    
     private var allItems: [Status: [String : Item]] = [
         .todo: [:],
         .inProgress: [:],
         .done: [:]
     ]
     
+    deinit {
+        removeListener()
+    }
+    
+    private func removeListener() {
+        listener?.remove()
+        listener = nil
+    }
+    
+    
     func fetchItems() {
         guard let currentUser = Auth.auth().currentUser else { return }
         let id = currentUser.uid
-        
-        db.collection("Items").whereField("authorId", isEqualTo: id).addSnapshotListener { [weak self] snapshot, err in
+        removeListener()
+        listener = db.collection("Items").whereField("authorId", isEqualTo: id).addSnapshotListener { [weak self] snapshot, err in
             if let err {
                 print("Error fetching document: \(err)")
                 return
