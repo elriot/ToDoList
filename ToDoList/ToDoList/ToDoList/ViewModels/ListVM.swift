@@ -13,6 +13,8 @@ final class ListVM: ObservableObject {
     @Published var doneItems: [Item] = []
     @Published var unknown: [Item] = []
     
+    @Published var shouldReDraw = false
+    
     init() {
         IM.shared.delegate = self
     }
@@ -74,6 +76,7 @@ extension ListVM: ItemsManagerDelegate {
                     todoItems.remove(at: i)
                     moveItem(item)
                 }
+                
             } else if let i = inProgressItems.firstIndex(of: item) {
                 if inProgressItems[i].status == item.status {
                     inProgressItems[i] = item
@@ -89,6 +92,7 @@ extension ListVM: ItemsManagerDelegate {
                     moveItem(item)
                 }
             }
+            shouldReDraw.toggle()
         }
     }
     

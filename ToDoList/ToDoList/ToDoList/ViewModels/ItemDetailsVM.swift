@@ -9,7 +9,23 @@ import Foundation
 
 final class ItemDetailsVM: ObservableObject {
     @Published var initialItem = Item.empty()
-    @Published var updatedItem = Item(id: "abcd", authorId: "John", title: "leetcode", description: "Solve easy problem tomorrow", startDate: .now, status: .todo, priority: .high)
+    @Published var updatedItem = Item.empty()
+    @Published var didUpdateItem = false
+    @Published var updateItemError = false
     
+    func updateItem() {
+        Task {
+            do {
+                try await IM.shared.saveItem(updatedItem)
+                DispatchQueue.main.async { [weak self] in
+                    self?.didUpdateItem = true
+                }
+            } catch {
+                DispatchQueue.main.async { [weak self] in
+                    self?.updateItemError = true
+                }
+            }
+        }
+    }
     
 }
