@@ -10,6 +10,7 @@ import SwiftUI
 struct ListItemView: View {
     let item: Item
     let height: CGFloat
+    
     var body: some View {
         HStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 3) {
@@ -25,10 +26,10 @@ struct ListItemView: View {
             
             Spacer()
             
-            Image(systemName: "circle")
+            Image(systemName: item.priority.img)
                 .resizable()
                 .scaledToFit()
-                .foregroundColor(.blue)
+                .foregroundColor(item.priority.color)
                 .frame(maxHeight: height * 0.45)
         }
     }
