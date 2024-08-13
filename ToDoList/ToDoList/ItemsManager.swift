@@ -99,4 +99,14 @@ final class ItemsManager {
             throw error
         }
     }
+    
+    func deleteItem(_ item: Item) async throws {
+        do {
+            try await db.collection("Items").document(item.id).delete()
+            print("Document successfully removed!")
+        } catch {
+            print("Error removing document: \(error)")
+            throw error
+        }
+    }
 }
