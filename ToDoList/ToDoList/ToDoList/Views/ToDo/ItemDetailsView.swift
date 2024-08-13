@@ -56,6 +56,7 @@ struct ItemDetailsView: View {
             vm.initialItem = item
             vm.updatedItem = item
         }
+        
     }
 }
 

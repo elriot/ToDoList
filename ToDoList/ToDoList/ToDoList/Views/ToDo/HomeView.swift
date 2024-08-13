@@ -54,7 +54,6 @@ struct HomeView: View {
                 case .details(let item):
                     ItemDetailsView(item: item, path: $path)
                 }
-                
             }
             .confirmationDialog("Continue signing out?", isPresented: $showLogout){
                 Button("Confirm", role: .destructive){
