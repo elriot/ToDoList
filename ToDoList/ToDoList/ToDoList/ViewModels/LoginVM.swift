@@ -42,6 +42,12 @@ final class LoginVM: ObservableObject {
     @Published var lname = ""
     
     @Published var loginError = false
+    @Published var loginSuccess = false
+    @Published var loginErrorMessage = ""
+    
+    @Published var signupSuccess = false
+    @Published var signupError = false
+    @Published var signupErrorMessage = ""
 //    @Published var didLogin = false
     
     init() {
@@ -53,14 +59,30 @@ final class LoginVM: ObservableObject {
             Task {
                 do {
                     try await auth.signIn(email, pw)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.loginSuccess = true
+                    }
                 } catch {
                     DispatchQueue.main.async { [weak self] in
                         self?.loginError = true
+                        self?.loginErrorMessage = error.localizedDescription
                     }
                 }
             }
         } else {
-            auth.signUp(fname, lname, newEmail, newPw)
+            Task {
+                do {
+                    try await auth.signUp(fname, lname, newEmail, newPw)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.signupSuccess = true
+                    }
+                } catch {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.signupError = true
+                        self?.signupErrorMessage = error.localizedDescription
+                    }
+                }
+            }
         }
     }
     
@@ -71,6 +93,13 @@ final class LoginVM: ObservableObject {
             print(error)
             throw error
         }
+    }
+    
+    func clearSignUpField() {
+        newEmail = ""
+        newPw = ""
+        fname = ""
+        lname = ""
     }
 }
 

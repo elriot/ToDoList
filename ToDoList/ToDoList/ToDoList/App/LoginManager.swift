@@ -32,8 +32,8 @@ final class LoginManager {
         removeListener()
     }
 
-    func signUp(_ fname: String, _ lname: String, _ email: String, _ pw: String) {
-        Task {
+    func signUp(_ fname: String, _ lname: String, _ email: String, _ pw: String) async throws {
+//        Task {
             do {
                 let result = try await Auth.auth().createUser(withEmail: email, password: pw)
                 let currentUser = result.user
@@ -50,7 +50,7 @@ final class LoginManager {
                 print(error)
                 throw error
             }
-        }
+//        }
     }
     
     func signIn(_ email: String, _ pw: String) async throws {
