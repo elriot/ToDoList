@@ -35,6 +35,15 @@ struct LoginView: View {
                 LoginButton(title: vm.titleText) {
                     vm.didTapLoginButton()
                 }
+                .alert("Failed to Login", isPresented: $vm.loginError){
+                    Button("Try Again", role: .cancel) {
+                        vm.loginError = false
+                    }
+                } message: {
+                    Text("The email does not exist or the password is incorrect.")
+                }
+
+                
             }
             .padding(.horizontal)
             

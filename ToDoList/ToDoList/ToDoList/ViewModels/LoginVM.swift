@@ -41,20 +41,36 @@ final class LoginVM: ObservableObject {
     @Published var fname = ""
     @Published var lname = ""
     
+    @Published var loginError = false
+//    @Published var didLogin = false
+    
     init() {
         auth.delegate = self
     }
     
     func didTapLoginButton() {
         if isLoggingIn {
-            auth.signIn(email, pw)
+            Task {
+                do {
+                    try await auth.signIn(email, pw)
+                } catch {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.loginError = true
+                    }
+                }
+            }
         } else {
             auth.signUp(fname, lname, newEmail, newPw)
         }
     }
     
-    func signOut() {
-        auth.signOut()
+    func signOut() async throws {
+        do {
+            try await auth.signOut()
+        } catch {
+            print(error)
+            throw error
+        }
     }
 }
 
