@@ -10,37 +10,39 @@ import SwiftUI
 struct ItemDetailsView: View {
     let item: Item
     @Binding var path: [NavPath]
-    @StateObject private var vm = ItemDetailsVM()
+    @State private var showDeleteAlert: Bool = false
+    @StateObject private var detailVM = ItemDetailsVM()
+    @StateObject private var deleteVM = DeleteItemVM()
     
     var body: some View {
         VStack(spacing: 10) {
             
-            TitledTextField(title: "Title", placeholder: "What do you need to do?", text: $vm.updatedItem.title)
+            TitledTextField(title: "Title", placeholder: "What do you need to do?", text: $detailVM.updatedItem.title)
             
             Divider()
             
-            TitledTextField(title: "Description", placeholder: "Add a brief description", text: $vm.updatedItem.description)
+            TitledTextField(title: "Description", placeholder: "Add a brief description", text: $detailVM.updatedItem.description)
             
             Divider()
             
-            StatusMenu(status: $vm.updatedItem.status)
+            StatusMenu(status: $detailVM.updatedItem.status)
             
             Divider()
             
-            PriorityMenu(priority: $vm.updatedItem.priority)
+            PriorityMenu(priority: $detailVM.updatedItem.priority)
             
             Spacer()
             
-            if vm.initialItem.isDifferent(compareTo: vm.updatedItem) {
+            if detailVM.initialItem.isDifferent(compareTo: detailVM.updatedItem) {
                 CTAButton(title: "Confirm") {
-                    vm.updateItem()
+                    detailVM.updateItem()
                 }
-                .alert("Alert", isPresented: $vm.updateItemError){
+                .alert("Alert", isPresented: $detailVM.updateItemError){
                     Button("Dismiss", role: .cancel) {}
                 } message: {
                     Text("Error updating item.")
                 }
-                .alert("Success!", isPresented: $vm.didUpdateItem) {
+                .alert("Success!", isPresented: $detailVM.didUpdateItem) {
                     Button("Dismiss", role: .cancel) {
                         path.removeLast()
                     }
@@ -53,10 +55,38 @@ struct ItemDetailsView: View {
         .padding(.horizontal)
         .navigationTitle("Details")
         .onAppear {
-            vm.initialItem = item
-            vm.updatedItem = item
+            detailVM.initialItem = item
+            detailVM.updatedItem = item
         }
-        
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing, content: {
+                Button {
+                    showDeleteAlert = true
+                } label: {
+                    Image(systemName: "trash")
+                }
+            })
+        }
+        .confirmationDialog("Delete?", isPresented: $showDeleteAlert){
+            Button("Delete", role: .destructive){
+                deleteVM.deleteItem(item: item)
+            }
+            Button("Cancel", role: .cancel){}
+        } message: {
+            Text("Do you really want to delete this item?")
+        }
+        .alert("Alert", isPresented: $deleteVM.deleteItemError){
+            Button("Dismiss", role: .cancel) {}
+        } message: {
+            Text("Error deleting item.")
+        }
+        .alert("Success!", isPresented: $deleteVM.didDelteItem) {
+            Button("Dismiss", role: .cancel) {
+                path.removeLast()
+            }
+        } message: {
+            Text("updating item saved successfully.")
+        }
     }
 }
 
