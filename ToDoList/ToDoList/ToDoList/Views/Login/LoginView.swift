@@ -35,6 +35,25 @@ struct LoginView: View {
                 LoginButton(title: vm.titleText) {
                     vm.didTapLoginButton()
                 }
+                .alert("Failed to Login", isPresented: $vm.loginError){
+                    Button("Try Again", role: .cancel) {}
+                } message: {
+                    Text(vm.loginErrorMessage)
+                }
+                .alert("Failed to Signup", isPresented: $vm.signupError){
+                    Button("Try Again", role: .cancel) {}
+                } message: {
+                    Text(vm.signupErrorMessage)
+                }
+                .alert("You're ready!", isPresented: $vm.signupSuccess){
+                    Button("Go Login", role: .cancel) {
+                        vm.email = vm.newEmail
+                        vm.clearSignUpField()
+                        vm.isLoggingIn = true
+                    }
+                } message: {
+                    Text("You’ve successfully Signed up!")
+                }
             }
             .padding(.horizontal)
             

@@ -41,7 +41,7 @@ struct NewItemView: View {
                 Text("Error saving new item.")
             }
             .alert("Success!", isPresented: $vm.didSaveItem) {
-                Button("Dismiss", role: .cancel) {
+                Button("Done", role: .cancel) {
                     path.removeLast()
                 }
             } message: {
