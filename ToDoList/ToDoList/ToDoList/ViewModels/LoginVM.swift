@@ -61,6 +61,8 @@ final class LoginVM: ObservableObject {
                     try await auth.signIn(email, pw)
                     DispatchQueue.main.async { [weak self] in
                         self?.loginSuccess = true
+//                        self?.email = ""
+                        self?.pw = ""
                     }
                 } catch {
                     DispatchQueue.main.async { [weak self] in
