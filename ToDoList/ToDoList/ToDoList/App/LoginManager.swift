@@ -96,6 +96,29 @@ final class LoginManager {
         }
     }
     
+    func getUser() async throws -> AppUser {
+        let uid = Auth.auth().getUserID()!
+        
+        do {
+            let document = try await db.collection("Users").document(uid).getDocument()
+            let fname = document.data()?["fname"] as? String ?? ""
+            let lname = document.data()?["lname"] as? String ?? ""
+            let email = document.data()?["email"] as? String ?? ""
+            
+            return AppUser(id: uid, email: email, fname: fname, lname: lname)
+//            let result: [String: String] = [
+//                "fname": document.data()?["fname"] as? String ?? "",
+//                "lname": document.data()?["lname"] as? String ?? "",
+//                "email": document.data()?["email"] as? String ?? "",
+//            ]
+//            return result
+        } catch {
+            print("failed to get user data : \(error)")
+            throw error
+        }
+    }
+
+    
     func setupListener() {
         guard handler == nil else { return }
         handler = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
