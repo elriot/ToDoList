@@ -9,35 +9,64 @@ import SwiftUI
 
 struct UserViewInfo: View {
     @Binding var path: [NavPath]
+    @EnvironmentObject var loginVM: LoginVM
     @StateObject private var vm = UserInfoVM()
-    let size: CGFloat = 150
-    
-    var email = "bao@admin.com"
-    
+    @State private var showLogout: Bool = false
+
     var body: some View {
-        VStack (alignment: .center) {
+        VStack {
+            VStack {
+                UserInfoField(user: $vm.updatedUser)
+            }
             
-            Image(systemName: "person.circle")
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: size, maxHeight: size)
-                .foregroundColor(.blue)
-                .padding(.trailing)
+            Spacer()
             
-            Text(email)
-                .font(.title)
-                .padding(20)
-                .fontWeight(.heavy)
-                
-            Text("fname : \(vm.fname)")
-            Text("lname : \(vm.lname)")
-            Text("email: \(vm.email)")
-            
-            Text("email: \(vm.initialUser.fname)")
+            if vm.initialUser.isDifferent(compareTo: vm.updatedUser) {
+                CTAButton(title: "Update") {
+                    vm.updateUser()
+                }
+                .alert("Alert", isPresented: $vm.updateUserError){
+                    Button("Dismiss", role: .cancel) {}
+                } message: {
+                    Text("Error updating user info.")
+                }
+                .alert("Success!", isPresented: $vm.didUpdateUser) {
+                    Button("Dismiss", role: .cancel) {
+                        path.removeLast()
+                    }
+                } message: {
+                    Text("user name saved successfully.")
+                }
+            }
+        }
+        .padding(.horizontal)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing, content: {
+                Button {
+                    showLogout = true
+                } label: {
+                    Text("Sign out")
+                }
+            })
+        }
+        .confirmationDialog("Continue signing out?", isPresented: $showLogout){
+            Button("Confirm", role: .destructive){
+                Task {
+                    do {
+                        try await loginVM.signOut()
+                    } catch {
+                        print(error)
+                        throw error
+                    }
+                }
+            }
+            Button("Cancel", role: .cancel){}
+        } message: {
+            Text("Continue signing out?")
         }
     }
 }
 
-#Preview {
-    UserViewInfo(path: .constant([]))
-}
+//#Preview {
+//    UserViewInfo(path: .constant([]))
+//}

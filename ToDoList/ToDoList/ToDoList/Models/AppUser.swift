@@ -8,8 +8,8 @@
 import Foundation
 
 struct AppUser: Identifiable, Equatable, Hashable {
-    let id: String
-    let email: String
+    var id: String
+    var email: String
     var fname: String
     var lname: String
     

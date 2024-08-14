@@ -11,7 +11,7 @@ struct HomeView: View {
     @EnvironmentObject var loginVM: LoginVM
     @StateObject private var vm = ListVM()
     @State private var path: [NavPath] = []
-    @State private var showLogout: Bool = false
+//    @State private var showLogout: Bool = false
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -39,14 +39,14 @@ struct HomeView: View {
                         Image(systemName: "person.circle")
                     }
                 })
-                ToolbarItem(placement: .topBarLeading, content: {
-                    Button {
-                        showLogout = true
-//                        path.append(.userInfo)
-                    } label: {
-                        Image(systemName: "person.circle")
-                    }
-                })
+//                ToolbarItem(placement: .topBarLeading, content: {
+//                    Button {
+//                        showLogout = true
+////                        path.append(.userInfo)
+//                    } label: {
+//                        Image(systemName: "person.circle")
+//                    }
+//                })
                 
                 ToolbarItem(placement: .topBarTrailing, content: {
                     Button {
@@ -66,21 +66,21 @@ struct HomeView: View {
                     UserViewInfo(path: $path)
                 }
             }
-            .confirmationDialog("Continue signing out?", isPresented: $showLogout){
-                Button("Confirm", role: .destructive){
-                    Task {
-                        do {
-                            try await loginVM.signOut()
-                        } catch {
-                            print(error)
-                            throw error
-                        }
-                    }
-                }
-                Button("Cancel", role: .cancel){}
-            } message: {
-                Text("Continue signing out?")
-            }
+//            .confirmationDialog("Continue signing out?", isPresented: $showLogout){
+//                Button("Confirm", role: .destructive){
+//                    Task {
+//                        do {
+//                            try await loginVM.signOut()
+//                        } catch {
+//                            print(error)
+//                            throw error
+//                        }
+//                    }
+//                }
+//                Button("Cancel", role: .cancel){}
+//            } message: {
+//                Text("Continue signing out?")
+//            }
         }
         .onAppear {
             print("onappar!")
