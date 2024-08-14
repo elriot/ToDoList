@@ -33,7 +33,16 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading, content: {
                     Button {
+//                        showLogout = true
+                        path.append(.userInfo)
+                    } label: {
+                        Image(systemName: "person.circle")
+                    }
+                })
+                ToolbarItem(placement: .topBarLeading, content: {
+                    Button {
                         showLogout = true
+//                        path.append(.userInfo)
                     } label: {
                         Image(systemName: "person.circle")
                     }
@@ -53,6 +62,8 @@ struct HomeView: View {
                     NewItemView(path: $path)
                 case .details(let item):
                     ItemDetailsView(item: item, path: $path)
+                case .userInfo:
+                    UserViewInfo(path: $path)
                 }
             }
             .confirmationDialog("Continue signing out?", isPresented: $showLogout){
