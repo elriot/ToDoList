@@ -1,12 +1,12 @@
 //
-//  UserInfoVM.swift
+//  AppUserVM.swift
 //  ToDoList
 //
 //  Created by SOOPIN KIM on 2024-08-14.
 //
 
 import Foundation
-final class UserInfoVM: ObservableObject {
+final class AppUserVM: ObservableObject {
     private let auth = LoginManager()
     
     @Published var initialUser = AppUser.empty()
@@ -26,8 +26,6 @@ final class UserInfoVM: ObservableObject {
                     updatedUser.email = initialUser.email
                     updatedUser.fname = initialUser.fname
                     updatedUser.lname = initialUser.lname
-//                    dump("initial user : \(initialUser)")
-//                    dump("updated user : \(updatedUser)")
                 }
             } catch {
                 throw error
@@ -35,8 +33,21 @@ final class UserInfoVM: ObservableObject {
         }
     }
     
-    func updateUser() {
-        print("update db")
+    func updateAppUser(user: AppUser){
+        Task {
+            do {
+                try await UM.shared.updateAppUser(user)
+                DispatchQueue.main.async { [weak self] in
+                    self?.didUpdateUser = true
+                    self?.initialUser.fname = user.fname
+                    self?.initialUser.lname = user.lname
+                }
+            } catch {
+                DispatchQueue.main.async { [weak self] in
+                    self?.updateUserError = true
+                }
+            }
+        }
     }
     
 }

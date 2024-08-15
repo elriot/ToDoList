@@ -10,7 +10,7 @@ import SwiftUI
 struct UserViewInfo: View {
     @Binding var path: [NavPath]
     @EnvironmentObject var loginVM: LoginVM
-    @StateObject private var vm = UserInfoVM()
+    @StateObject private var vm = AppUserVM()
     @State private var showLogout: Bool = false
 
     var body: some View {
@@ -23,23 +23,21 @@ struct UserViewInfo: View {
             
             if vm.initialUser.isDifferent(compareTo: vm.updatedUser) {
                 CTAButton(title: "Update") {
-                    vm.updateUser()
-                }
-                .alert("Alert", isPresented: $vm.updateUserError){
-                    Button("Dismiss", role: .cancel) {}
-                } message: {
-                    Text("Error updating user info.")
-                }
-                .alert("Success!", isPresented: $vm.didUpdateUser) {
-                    Button("Dismiss", role: .cancel) {
-                        path.removeLast()
-                    }
-                } message: {
-                    Text("user name saved successfully.")
+                    vm.updateAppUser(user: vm.updatedUser)
                 }
             }
         }
         .padding(.horizontal)
+        .alert("Alert", isPresented: $vm.updateUserError){
+            Button("Dismiss", role: .cancel) {}
+        } message: {
+            Text("Error updating user info.")
+        }
+        .alert("Success!", isPresented: $vm.didUpdateUser) {
+            Button("Done", role: .cancel) {}
+        } message: {
+            Text("user name saved successfully.")
+        }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing, content: {
                 Button {
