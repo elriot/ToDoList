@@ -54,17 +54,17 @@ final class LoginManager {
     }
     
     func signIn(_ email: String, _ pw: String) async throws {
-//        Task {
-            do {
-                let result = try await Auth.auth().signIn(withEmail: email, password: pw)
-                currentUser = result.user
-//                dump("currentUser \(currentUser)")
-//                print("successfully signed in user!")
-                setupListener()
-            } catch {
-//                print("sign in error : \(error)")
-                throw error
-            }
+        //        Task {
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: pw)
+            currentUser = result.user
+            //                dump("currentUser \(currentUser)")
+            //                print("successfully signed in user!")
+            setupListener()
+        } catch {
+            //                print("sign in error : \(error)")
+            throw error
+        }
     }
     
     func signOut() async throws {
@@ -78,6 +78,46 @@ final class LoginManager {
             throw error
         }
     }
+    
+    func getUserInfo() async throws -> [String : String]  {
+        let uid = Auth.auth().getUserID()!
+        
+        do {
+            let document = try await db.collection("Users").document(uid).getDocument()
+            let result: [String: String] = [
+                "fname": document.data()?["fname"] as? String ?? "",
+                "lname": document.data()?["lname"] as? String ?? "",
+                "email": document.data()?["email"] as? String ?? "",
+            ]
+            return result
+        } catch {
+            print("failed to get user data : \(error)")
+            throw error
+        }
+    }
+    
+    func getUser() async throws -> AppUser {
+        let uid = Auth.auth().getUserID()!
+        
+        do {
+            let document = try await db.collection("Users").document(uid).getDocument()
+            let fname = document.data()?["fname"] as? String ?? ""
+            let lname = document.data()?["lname"] as? String ?? ""
+            let email = document.data()?["email"] as? String ?? ""
+            
+            return AppUser(id: uid, email: email, fname: fname, lname: lname)
+//            let result: [String: String] = [
+//                "fname": document.data()?["fname"] as? String ?? "",
+//                "lname": document.data()?["lname"] as? String ?? "",
+//                "email": document.data()?["email"] as? String ?? "",
+//            ]
+//            return result
+        } catch {
+            print("failed to get user data : \(error)")
+            throw error
+        }
+    }
+
     
     func setupListener() {
         guard handler == nil else { return }
