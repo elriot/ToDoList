@@ -49,14 +49,7 @@ struct UserViewInfo: View {
         }
         .confirmationDialog("Continue signing out?", isPresented: $showLogout){
             Button("Confirm", role: .destructive){
-                Task {
-                    do {
-                        try await loginVM.signOut()
-                    } catch {
-                        print(error)
-                        throw error
-                    }
-                }
+                loginVM.signOut()
             }
             Button("Cancel", role: .cancel){}
         } message: {
@@ -65,6 +58,6 @@ struct UserViewInfo: View {
     }
 }
 
-//#Preview {
-//    UserViewInfo(path: .constant([]))
-//}
+#Preview {
+    UserViewInfo(path: .constant([]))
+}

@@ -88,12 +88,12 @@ final class LoginVM: ObservableObject {
         }
     }
     
-    func signOut() async throws {
-        do {
-            try await auth.signOut()
-        } catch {
-            print(error)
-            throw error
+    func signOut(){
+//        auth.signOut()
+        Task {
+            do {
+                try await auth.signOut()
+            } 
         }
     }
     
