@@ -23,7 +23,7 @@ struct UserViewInfo: View {
             
             if vm.initialUser.isDifferent(compareTo: vm.updatedUser) {
                 CTAButton(title: "Update") {
-                    vm.updateAppUser(user: vm.updatedUser)
+                    vm.updateAppUser()
                 }
             }
         }

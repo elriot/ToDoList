@@ -22,10 +22,7 @@ final class AppUserVM: ObservableObject {
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
                     initialUser = user
-                    updatedUser.id = initialUser.id
-                    updatedUser.email = initialUser.email
-                    updatedUser.fname = initialUser.fname
-                    updatedUser.lname = initialUser.lname
+                    updatedUser = initialUser
                 }
             } catch {
                 throw error
@@ -33,14 +30,14 @@ final class AppUserVM: ObservableObject {
         }
     }
     
-    func updateAppUser(user: AppUser){
+    func updateAppUser() {
         Task {
             do {
-                try await UM.shared.updateAppUser(user)
+                try await UM.shared.updateAppUser(updatedUser)
                 DispatchQueue.main.async { [weak self] in
-                    self?.didUpdateUser = true
-                    self?.initialUser.fname = user.fname
-                    self?.initialUser.lname = user.lname
+                    guard let self = self else { return }
+                    self.didUpdateUser = true
+                    self.initialUser = self.updatedUser
                 }
             } catch {
                 DispatchQueue.main.async { [weak self] in
@@ -49,5 +46,4 @@ final class AppUserVM: ObservableObject {
             }
         }
     }
-    
 }

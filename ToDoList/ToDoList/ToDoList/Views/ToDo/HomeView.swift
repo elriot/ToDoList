@@ -39,15 +39,6 @@ struct HomeView: View {
                         Image(systemName: "person.circle")
                     }
                 })
-//                ToolbarItem(placement: .topBarLeading, content: {
-//                    Button {
-//                        showLogout = true
-////                        path.append(.userInfo)
-//                    } label: {
-//                        Image(systemName: "person.circle")
-//                    }
-//                })
-                
                 ToolbarItem(placement: .topBarTrailing, content: {
                     Button {
                         path.append(.newItem)
@@ -66,21 +57,6 @@ struct HomeView: View {
                     UserViewInfo(path: $path)
                 }
             }
-//            .confirmationDialog("Continue signing out?", isPresented: $showLogout){
-//                Button("Confirm", role: .destructive){
-//                    Task {
-//                        do {
-//                            try await loginVM.signOut()
-//                        } catch {
-//                            print(error)
-//                            throw error
-//                        }
-//                    }
-//                }
-//                Button("Cancel", role: .cancel){}
-//            } message: {
-//                Text("Continue signing out?")
-//            }
         }
         .onAppear {
             print("onappar!")
